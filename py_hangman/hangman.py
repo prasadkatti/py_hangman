@@ -65,9 +65,14 @@ class Hangman(object):
         print self.FAILURE_MSG.format(self.answer.center(79, ' '))
 
 
-if __name__ == "__main__":
+def main():
+
     try:
         Hangman().start_game()
     except KeyboardInterrupt:
         print
         print " Goodbye! ".center(79, '*')
+
+
+if __name__ == "__main__":
+    main()
