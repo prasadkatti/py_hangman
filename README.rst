@@ -15,14 +15,21 @@ Note: This project was primarily created for the following purposes -
 Installing Hangman
 ------------------
 
-<TBA>
+Clone the repo and run ``pip install .`` from the directory containing setup.py.
+
+TODO: Upload to PyPI, so users can do ``pip install py-hangman``.
 
 Running Hangman
 ---------------
 
-<TBA>
+After installing the project, you will have a binary called hangman. If you
+install the project in virtualenv, the hangman binary will be in the bin directory
+of the virtualenv.
+
+Run the hangman binary to start the game. Follow the instructions on continue.
 
 Testing
 -------
 
-<TBA>
+Tests are written using unittest. Run them with -
+``python tests.py -b``
