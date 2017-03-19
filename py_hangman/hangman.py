@@ -22,7 +22,6 @@ class Hangman(object):
 
     PLAYER_B_TURN = " Player B ".center(79, '-')
 
-
     def __init__(self):
         self.chances = self.MAX_NUM_CHANCES
         self.guesses = set()
@@ -37,7 +36,7 @@ class Hangman(object):
         else:
             raise Exception("Player A hasn't picked a word yet!")
 
-    def _take_guess(self):
+    def _accept_guess(self):
         print self.PLAYER_B_TURN
         print "\n{0}\n".format(self._make_partial_answer().center(79, ' '))
         print "Chances left {0}".format(self.chances)
@@ -45,7 +44,7 @@ class Hangman(object):
         if len(guess) != 1 or not guess.isalpha():
             print self.INVALID_GUESS_MSG
             return
-	if guess in self.guesses:
+        if guess in self.guesses:
             print self.ALREADY_GUESSED_MSG.format(guess)
             return
         return guess
@@ -54,10 +53,9 @@ class Hangman(object):
         if guess not in self.answer:
             self.chances -= 1
 
-    def _accept_apply_guess(self, guess):
+    def _add_guess(self, guess):
         self.guesses.add(guess)
         self.guesses.add(guess.swapcase())
-        self._update_chances(guess)
 
     def _word_guessed(self):
         return self.answer == self._make_partial_answer()
@@ -66,10 +64,11 @@ class Hangman(object):
         print self.WELCOME_MSG
         self._get_quiz_word()
         while self.chances:
-            guess = self._take_guess()
+            guess = self._accept_guess()
             if not guess:
                 continue
-            self._accept_apply_guess(guess)
+            self._add_guess(guess)
+            self._update_chances(guess)
             if self._word_guessed():
                 print self.SUCCESS_MSG.format(self.answer.center(79, ' '))
                 return
