@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import unittest
 from contextlib import contextmanager
 
@@ -39,7 +41,7 @@ class TestHangman(unittest.TestCase):
         with mock_raw_input('123'):
             self.assertIsNone(h._accept_guess(), "test - accept guess - 2")
 
-        h.guesses = set(['a', 'b', 'c'])
+        h.guesses = {'a', 'b', 'c'}
         with mock_raw_input('a'):
             self.assertIsNone(h._accept_guess(), "test - accept guess - 3")
 
