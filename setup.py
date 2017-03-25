@@ -20,11 +20,14 @@ setup(
         'Development Status :: 2 - Pre-Alpha',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Games/Entertainment',
     ],
     entry_points={
         'console_scripts': [
             'hangman=py_hangman.hangman:main',
         ],
-    }
+    },
+    install_requires=['six']
 )

@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
+
+from __future__ import print_function
+
 import getpass
+from six.moves import input
 
 
 class Hangman(object):
@@ -24,28 +28,30 @@ class Hangman(object):
 
     def __init__(self):
         self.chances = self.MAX_NUM_CHANCES
+        self.answer = None
         self.guesses = set()
 
     def _get_quiz_word(self):
-        print self.PLAYER_A_TURN
+        print(self.PLAYER_A_TURN)
         self.answer = getpass.getpass("Enter the word to guess: ")
 
     def _make_partial_answer(self):
-        if hasattr(self, 'answer'):
-            return ''.join([i if i in self.guesses or not i.isalpha() else '*' for i in self.answer])
+        if self.answer:
+            return ''.join([i if i in self.guesses or not i.isalpha()
+                            else '*' for i in self.answer])
         else:
             raise Exception("Player A hasn't picked a word yet!")
 
     def _accept_guess(self):
-        print self.PLAYER_B_TURN
-        print "\n{0}\n".format(self._make_partial_answer().center(79, ' '))
-        print "Chances left {0}".format(self.chances)
-        guess = raw_input("Enter a char: ")
+        print(self.PLAYER_B_TURN)
+        print("\n{0}\n".format(self._make_partial_answer().center(79, ' ')))
+        print("Chances left {0}".format(self.chances))
+        guess = input("Enter a char: ")
         if len(guess) != 1 or not guess.isalpha():
-            print self.INVALID_GUESS_MSG
+            print(self.INVALID_GUESS_MSG)
             return
         if guess in self.guesses:
-            print self.ALREADY_GUESSED_MSG.format(guess)
+            print(self.ALREADY_GUESSED_MSG.format(guess))
             return
         return guess
 
@@ -61,7 +67,7 @@ class Hangman(object):
         return self.answer == self._make_partial_answer()
 
     def start_game(self):
-        print self.WELCOME_MSG
+        print(self.WELCOME_MSG)
         self._get_quiz_word()
         while self.chances:
             guess = self._accept_guess()
@@ -70,9 +76,9 @@ class Hangman(object):
             self._add_guess(guess)
             self._update_chances(guess)
             if self._word_guessed():
-                print self.SUCCESS_MSG.format(self.answer.center(79, ' '))
+                print(self.SUCCESS_MSG.format(self.answer.center(79, ' ')))
                 return
-        print self.FAILURE_MSG.format(self.answer.center(79, ' '))
+        print(self.FAILURE_MSG.format(self.answer.center(79, ' ')))
 
 
 def main():
@@ -80,8 +86,8 @@ def main():
     try:
         Hangman().start_game()
     except KeyboardInterrupt:
-        print
-        print " Goodbye! ".center(79, '*')
+        print()
+        print(" Goodbye! ".center(79, '*'))
 
 
 if __name__ == "__main__":
