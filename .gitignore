@@ -3,7 +3,18 @@
 *.pyc
 
 # Distribution / Packaging
+build/
 dist/
 *.egg-info/
 *.whl
+
+# tox
+.tox
+
+# PyCharm
+.idea/
+
+# Vagrant
+Vagrantfile
+.vagrant/
 
