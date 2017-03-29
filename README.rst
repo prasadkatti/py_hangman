@@ -16,9 +16,12 @@ Note: This project was primarily created for the following purposes -
 Installing Hangman
 ------------------
 
-Clone the repo and run ``pip install .`` from the directory containing setup.py.
+The project is available on PyPI - https://pypi.python.org/pypi/py-hangman
 
-TODO: Upload to PyPI, so users can do ``pip install py-hangman``. Issue - #5
+As such, you can install using ``pip install py-hangman``.
+
+Or you can also install from source by cloning the repo and
+running ``pip install .`` from the directory containing setup.py.
 
 Running Hangman
 ---------------
