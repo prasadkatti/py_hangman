@@ -28,6 +28,7 @@ PROJECT_CLASSIFIERS = [
 setup(
     name="py_hangman",
     version=py_hangman.__version__,
+    license="MIT",
     description="A 2-player version of Hangman",
     long_description=LONG_DESCRIPTION,
     url="https://github.com/prasadkatti/py_hangman",
