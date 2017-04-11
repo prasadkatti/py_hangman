@@ -1,5 +1,7 @@
 .. image:: https://travis-ci.org/prasadkatti/py_hangman.svg?branch=master
     :target: https://travis-ci.org/prasadkatti/py_hangman
+.. image:: https://badge.fury.io/py/py-hangman.svg
+    :target: https://badge.fury.io/py/py-hangman
 
 2 Player Hangman
 ================
