@@ -43,3 +43,11 @@ Testing
 
 Tests are written using unittest. Run them with -
 ``python tests.py -b``
+
+Demo
+----
+
+|asciicast|
+
+.. |asciicast| image:: https://asciinema.org/a/azy7c3q7zb0oipwdusx5jzodb.png
+   :target: https://asciinema.org/a/azy7c3q7zb0oipwdusx5jzodb
