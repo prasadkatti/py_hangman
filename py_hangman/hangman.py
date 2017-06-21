@@ -3,8 +3,10 @@
 
 from __future__ import print_function
 
+import argparse
 import getpass
 from six.moves import input
+from .stats import add_result, show_stats
 
 
 class Hangman(object):
@@ -76,12 +78,25 @@ class Hangman(object):
             self._add_guess(guess)
             self._update_chances(guess)
             if self._word_guessed():
+                add_result("win")
                 print(self.SUCCESS_MSG.format(self.answer.center(79, ' ')))
                 return
+        add_result("lose")
         print(self.FAILURE_MSG.format(self.answer.center(79, ' ')))
 
 
 def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--stats', dest='stats', action='store_true', help='show statistics')
+    parser.add_argument('--clear-stats', dest='clear_stats', action='store_true', help='clear statistics')
+    args = parser.parse_args()
+
+    if args.stats:
+        show_stats()
+        return
+    if args.clear_stats:
+        raise NotImplementedError
 
     try:
         Hangman().start_game()
