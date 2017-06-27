@@ -6,6 +6,7 @@ Hangman Changelog
 ## 0.5
 
 * Added basic game statistics
+* Added Sphinx docs
 
 ## 0.4
 
