@@ -1,7 +1,13 @@
 Hangman Changelog
 =================
 
-## 0.4 - Active Development
+## 0.6 - Active development
+
+## 0.5
+
+* Added basic game statistics
+
+## 0.4
 
 * Added travis-ci config file
 * Dropped support for python 2.6
