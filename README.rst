@@ -17,6 +17,7 @@ Note: This project was primarily created for the following purposes -
 - Learning simple game development in Python
 - Understanding packaging and distribution in Python
 - Getting some experience with tools like tox and Travis CI
+- Getting experience with docs generating tools like rST, Markdown, Sphinx
 
 Installing Hangman
 ------------------
